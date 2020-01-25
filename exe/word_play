@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require "word_play"
+WordPlay::CLI.start(ARGV)
