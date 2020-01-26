@@ -12,9 +12,13 @@ Follow TDD principles.
 ### TODO
 
 * Word count
+* Word frequency
 * Character count
+* Character frequency
 * Vowel count
+* Vowel frequency
 * Reverse
+* Reverse words
 * Pig Latin
 * Palindrome?
 
