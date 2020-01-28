@@ -76,9 +76,11 @@ describe WordPlay do
     end
   end
 
-  describe "#display_hash" do
-    it "displays each key value of hash" do
-      expect { word_play.display_hash({"hello": 1, "there": 1}) }.to output("hello: 1\nthere: 1\n").to_stdout
+  describe WordPlay::CLI do
+    describe "#display_hash" do
+      it "displays each key value of hash" do
+        expect { WordPlay::CLI.new.display_hash({"hello": 1, "there": 1}) }.to output("hello: 1\nthere: 1\n").to_stdout
+      end
     end
   end
 end

@@ -67,14 +67,16 @@ class WordPlay
     vowel_hash
   end
 
-  def display_hash(input_hash)
-    input_hash.each do |k,v|
-      puts "#{k}: #{v}"
-    end
-  end
-
   class Error < StandardError; end
   class CLI < Thor
+
+    no_commands do
+      def display_hash(input_hash)
+        input_hash.each do |k,v|
+          puts "#{k}: #{v}"
+        end
+      end
+    end
 
     desc "reverse STRING", "reverses input string"
     def reverse(input_string)
@@ -103,9 +105,7 @@ class WordPlay
 
     desc "word_frequency STRING", "counts frequency of each input word"
     def word_frequency(input_string)
-      word_play = WordPlay.new
-      word_frequency = word_play.word_frequency(input_string)
-      word_play.display_hash(word_frequency)
+      display_hash(WordPlay.new.word_frequency(input_string))
     end
 
     desc "character_count STRING", "number of characters in input string"
@@ -115,9 +115,7 @@ class WordPlay
 
     desc "character_frequency STRING", "counts frequency of each input character"
     def character_frequency(input_string)
-      word_play = WordPlay.new
-      character_frequency = word_play.character_frequency(input_string)
-      word_play.display_hash(character_frequency)
+      display_hash(WordPlay.new.character_frequency(input_string))
     end
 
     desc "vowel_count STRING", "number of vowels in input string"
@@ -127,9 +125,7 @@ class WordPlay
 
     desc "vowel_frequency STRING", "counts frequency of each input vowel"
     def vowel_frequency(input_string)
-      word_play = WordPlay.new
-      vowel_frequency = word_play.vowel_frequency(input_string)
-      word_play.display_hash(vowel_frequency)
+      display_hash(WordPlay.new.vowel_frequency(input_string))
     end
   end
 end
